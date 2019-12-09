@@ -4,6 +4,7 @@ This project will contain **one** activity only, and all the other views will be
 For the navigation among views (fragments), I'll be using the **Navigation Component** (Android Studio >= 3.3).
 
 ## Steps to navigate using Navigation Component:
+- Add Navigation dependencies (both Gradle files)
 - Add the Navigation Graph to resources dir
 - Add `NavHostFragment` to Activity layout
 - Add fragments to Navigation Graph
