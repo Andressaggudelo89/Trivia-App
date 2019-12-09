@@ -38,7 +38,6 @@ class GameOverFragment : Fragment() {
                 Navigation.createNavigateOnClickListener(R.id.action_gameOverFragment2_to_gameFragment)
         )
 
-
         /*
         binding.tryAgainButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_gameOverFragment2_to_gameFragment)

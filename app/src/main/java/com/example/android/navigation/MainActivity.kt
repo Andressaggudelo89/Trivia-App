@@ -19,12 +19,35 @@ package com.example.android.navigation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //@Suppress("UNUSED_VARIABLE")
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+
+        //  Navigation Controller has a UI library called `NavigationUI`.
+        //  It integrates with the Action Bar to implement the correct behavior for the UP Button
+        //
+        //  To find the NavController in this activity, the `findNavController` method
+        //  This method takes the Activity and NavHostFragment params
+
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        NavigationUI.setupActionBarWithNavController(this,navController)
+
+        //  Override the method that controls Navigation Up:
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        //return super.onSupportNavigateUp()
+
+        //  Here is where we handle what happens when Up Button is pressed.
+        //  If we do not override this method, nothing happends when Up Button is pressed.
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        return navController.navigateUp()       //  That's it
     }
 }
